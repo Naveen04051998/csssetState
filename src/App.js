@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends Component {
+  state={name:"naveen",
+  msg:"please subscribe",
+value:"subcribe",
+backgroundColor:"red"
 }
 
-export default App;
+
+  clicked=()=>{
+    this.setState({value:"subscribed",msg:"thanks for subscribing",backgroundColor:"blue"})
+    
+    }
+ 
+  render() { 
+    const {name,value,msg,backgroundColor}=this.state
+
+   
+
+    return (
+      <div style={{backgroundColor:backgroundColor}}>
+        <h1>welcome to the screen {name}</h1>
+        <p>{msg}</p>
+     <button onClick={this.clicked}>{value}</button>
+      </div>
+    );
+  }
+}
